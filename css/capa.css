@@ -1,0 +1,14 @@
+body {
+    margin: 0%;
+}
+h1, h4, h2, th {
+    text-align: center;
+}
+
+.paragraphcenter {
+    text-align: center;
+}
+
+.jumbotron {
+    padding-top: 8px;
+}

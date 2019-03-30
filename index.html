@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vacina em Blockchain</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/capa.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Carteira de vacinação
+                </h1>
+                <hr>
+                <h2>    International Certificate of Vaccination or Prophylaxis 
+                        <br>
+                        International Health Regulations (2005)
+                </h2>
+                <hr>
+                <h2>
+                        Certificat international de vaccination ou de prophylaxie
+                        <br>
+                        Règlement sanitaire international (2005)
+                </h2>
+                <hr>
+                <h2>
+                        Certificado international de vacinação ou de profilaxia
+                        <br>
+                        Regulação sanitária internacional (2005)
+                </h2>
+                <hr>
+                <p class="paragraphcenter">Issued to / Délivré à / Emitido a</p>
+                <p class="paragraphcenter">
+                    <input type="text" name="patientinput" id="patientinput" class="form-control" 
+                    placeholder="(informe aqui o nome do paciente)" value="" required="required" pattern="[A-Za-z]" 
+                    title="Informe aqui o nome do paciente"
+                    onkeydown="mudaCampo(event)">
+                    <span id="patientlabel"></span>
+                </p>
+                <p class="paragraphcenter">Passport number or travel document number<br />
+                    Numéro du passeport ou du document de voyage<br />
+                    Numero do passaporte ou documento de viagem
+                </p>
+                <p class="paragraphcenter">
+                    <input type="text" name="passportinput" id="passportinput" class="form-control" 
+                    placeholder="(informe aqui o numero de passaporte do paciente)" value="" required="required" pattern="[A-Za-z]" 
+                    title="Informe aqui o numero de passaporte do paciente"
+                    onkeydown="mudaCampo(event)">
+                    <span id="passportlabel"></span>
+                </p>
+                <!-- Portugues -->
+                <p>
+                    Isto certifica que <span id="patientnamelabel">(nome a ser inserido)</span>, 
+                    nascida(o) em  
+                    <input type="text" name="dateofbirthinput" id="dateofbirthinput" class="form-control" 
+                    placeholder="(informe aqui a data de nascimento do paciente por extenso com o nome do mês)" value="" required="required" pattern="[dd\/dd\/dddd]" 
+                    title="Informe aqui a data de nascimento do paciente"
+                    onkeydown="mudaCampo(event)">
+                    <span id="dateofbirthlabel"></span>,  
+                    do genero 
+                    <input type="text" name="genderinput" id="genderinput" class="form-control" 
+                    placeholder="(informe aqui o genero do paciente)" value="" required="required" pattern="[A-Za-z]" 
+                    title="Informe aqui o genero do paciente"
+                    onkeydown="mudaCampo(event)">
+                    <span id="genderlabel"></span>,  
+                    e de nacionalidade 
+                    <input type="text" name="nacinput" id="nacinput" class="form-control" 
+                    placeholder="(informe aqui a nacionalidade do paciente)" value="" required="required" pattern="[A-Za-z]" 
+                    title="Informe aqui a nacionalidade do paciente"
+                    maxlength="3"
+                    onkeydown="mudaCampo(event)">
+                    <span id="naclabel"></span>,  
+                    com documento de identificação nacional, se possível 
+                    <input type="text" name="documentinput" id="documentinput" class="form-control" 
+                    placeholder="(informe aqui o RG ou outro documento de identidade do paciente)" value="" required="required" pattern="[A-Za-z0-9]" 
+                    title="Informe aqui o RG ou outro documento de identidade do paciente, se possível"
+                    onkeydown="mudaCampo(event)">
+                    <span id="documentlabel"></span>,  
+                    nas datas abaixo foi vacinada(o) ou recebeu profilaxia contra (nome das doenças ou condições abaixo) de acordo com as regulamentações sanitárias internacionais
+                </p>
+
+                <!-- Ingles -->
+                <p>
+                    This is to certify that <span id="patientnamelabel_en">(nome a ser inserido)</span>, 
+                    date of birth  
+                    <span id="dateofbirthlabel_en"></span>,  
+                    gender 
+                    <span id="genderlabel_en"></span>,  
+                    nationality 
+                    <span id="naclabel_en"></span>,  
+                    national identification document, if applicable  
+                    <span id="documentlabel_en"></span>,  
+                    has on the dates indicated below been vaccinated or received prophylaxis against: (name of diseases or conditions) in accordance with the International Health Regulations.  
+                </p>
+
+                <!-- Frances -->
+                <p>
+                    Nous certifions que <span id="patientnamelabel_fr">(nome a ser inserido)</span>, 
+                    né(e) le 
+                    <span id="dateofbirthlabel_fr"></span>,  
+                    de sexe  
+                    <span id="genderlabel_fr"></span>,  
+                    et de nationalité 
+                    <span id="naclabel_fr"></span>,  
+                    document d’identification national, le cas échéant  
+                    <span id="documentlabel_fr"></span>,  
+                    a été vacciné(e) ou a reçu des agents prophylactiques indiquée contre: (nom de la maladie ou de l’affection) conformément au Règlement sanitaire international. 
+                </p>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Disease targeted /
+                        <br>
+                        Maladie visée /
+                        <br>
+                        Doença alvo
+                    </th>
+                    <th>
+                        Vaccine or prophylaxis /
+                        <br>
+                        Vaccin ou agent prophylactique /
+                        <br>
+                        Vacina ou agente de profilaxia
+                    </th>
+                    <th>
+                        Date /
+                        <br>
+                        Data
+                    </th>
+                    <th>
+                        Name and professional status of supervising clinician /
+                        <br>
+                        Nom et titre du clinicien responsable /
+                        <br>
+                        Nome e cargo do clínico responsável
+                    </th>
+                    <th>
+                        Manufacturer and batch no. of vaccine or prophylaxis / 
+                        <br>
+                        Fabricant du vaccin ou de l’agent prophylactique et numéro du lot /
+                        <br>
+                        Fabricante da vacina ou agente de profilaxia e numero do lote
+                    </th>
+                    <th>
+                        Certificate valid from: until: /
+                        <br>
+                        Certificat valable à partir du :  jusqu’au : /
+                        <br>
+                        Certificado válido de :  até :
+                    </th>
+                    <th>
+                        Hash or record: /
+                        <br>
+                        Hash du record: /
+                        <br>
+                        Hash do registro:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="container">
+            <div class="jumbotron">
+                <h5>INFORMATION FOR PHYSICIANS</h5>
+                <ol>
+                    <li>
+                        The dates for vaccination on each certificate are recorded in
+                        the following sequence: day, month, year – the month in letters.
+                        Example: January 1, 2001 is written 1 January 2001.
+                    </li>
+                    <li>
+                        If vaccination is contraindicated on medical grounds, the physician
+                        should provide the traveller with a written opinion, which health
+                        authorities should take into account.
+                    </li>
+                    <li>
+                        Vaccination certificate requirements of countries are published
+                        by WHO in International travel and health. Information on
+                        designated yellow fever vaccinating centres is available from local
+                        or national health offices.
+                    </li>
+                    <li>
+                        The physician should always consider that his/her patient may
+                        have a travel-associated illness.
+                    </li>
+                </ol>
+                <hr>
+                <h5>
+                    RENSEIGNEMENTS DESTINÉS AUX MÉDECINS
+                </h5>
+                <ol>
+                    <li>
+                        La date de la vaccination doit être portée sur les certificats dans
+                        l’ordre suivant: jour, mois, année – le mois étant indiqué en toutes
+                        lettres. Exemple: 1er janvier 2001
+                    </li>
+                    <li>
+                        Si la vaccination est contre-indiquée pour raison médicale, le médecin
+                        doit fournir par écrit au voyageur un avis circonstancié, dont l’autorité
+                        sanitaire aux frontières doit tenir compte
+                    </li>
+                    <li>
+                        Les exigences des pays en matière de vaccination sont publiées
+                        par l’OMS dans la brochure Voyages internationaux et santé. Les
+                        renseignements sur les centres habilités à pratiquer la vaccination
+                        contre la fièvre jaune sont disponibles auprès des autorités
+                        sanitaires locales ou nationales.
+                    </li>
+                    <li>
+                        Le médecin doit toujours tenir compte du fait que son patient
+                        peut être atteint d’une maladie liée à un voyage.
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <footer>
+            <div class="container-fluid text-center">
+                <div class="footer-copyright">
+                    <h5>
+                        Registrada no Blockchain da rede Ethereum 
+                        <br>
+                        no Smart Contract 0xe7402e8cde5566c926f8103b793fa6eeec13c2b5
+                        <br>
+                        MyHealthData
+                    </h5>
+                </div>
+                <div>
+                    <hr>
+                </div>
+            </div>
+        </footer>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/form.js"></script>
+    </body>
+</html>
