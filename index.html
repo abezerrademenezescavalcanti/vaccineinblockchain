@@ -120,84 +120,88 @@
                 </p>
             </div>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        Disease targeted /
-                        <br>
-                        Maladie visée /
-                        <br>
-                        Doença alvo
-                    </th>
-                    <th>
-                        Vaccine or prophylaxis /
-                        <br>
-                        Vaccin ou agent prophylactique /
-                        <br>
-                        Vacina ou agente de profilaxia
-                    </th>
-                    <th>
-                        Date /
-                        <br>
-                        Data
-                    </th>
-                    <th>
-                        Name and professional status of supervising clinician /
-                        <br>
-                        Nom et titre du clinicien responsable /
-                        <br>
-                        Nome e cargo do clínico responsável
-                    </th>
-                    <th>
-                        Manufacturer and batch no. of vaccine or prophylaxis / 
-                        <br>
-                        Fabricant du vaccin ou de l’agent prophylactique et numéro du lot /
-                        <br>
-                        Fabricante da vacina ou agente de profilaxia e numero do lote
-                    </th>
-                    <th>
-                        Certificate valid from: until: /
-                        <br>
-                        Certificat valable à partir du :  jusqu’au : /
-                        <br>
-                        Certificado válido de :  até :
-                    </th>
-                    <th>
-                        Hash or record: /
-                        <br>
-                        Hash du record: /
-                        <br>
-                        Hash do registro:
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table-bordered" id="tabVaccines">
+                <thead>
+                    <tr>
+                        <th>
+                            Disease targeted /
+                            <br>
+                            Maladie visée /
+                            <br>
+                            Doença alvo
+                        </th>
+                        <th>
+                            Vaccine or prophylaxis /
+                            <br>
+                            Vaccin ou agent prophylactique /
+                            <br>
+                            Vacina ou agente de profilaxia
+                        </th>
+                        <th>
+                            Date /
+                            <br>
+                            Data
+                        </th>
+                        <th>
+                            Clinic or Hospital /
+                            <br>
+                            Clinic ou Hospital /
+                            <br>
+                            Clinica ou Hospital
+                        </th>   
+                        <th>
+                            Name and professional status of supervising clinician /
+                            <br>
+                            Nom et titre du clinicien responsable /
+                            <br>
+                            Nome e cargo do clínico responsável
+                        </th>
+                        <th>
+                            Manufacturer and batch no. of vaccine or prophylaxis / 
+                            <br>
+                            Fabricant du vaccin ou de l’agent prophylactique et numéro du lot /
+                            <br>
+                            Fabricante da vacina ou agente de profilaxia e numero do lote
+                        </th>
+                        <th>
+                            Certificate valid from: until: /
+                            <br>
+                            Certificat valable à partir du :  jusqu’au : /
+                            <br>
+                            Certificado válido de :  até :
+                        </th>                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>                    
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <hr>
         <div class="container">
             <div class="jumbotron">
                 <h5>INFORMATION FOR PHYSICIANS</h5>
@@ -272,6 +276,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js"      charset="utf-8"       type="text/javascript"></script>
         <script src="js/form.js"></script>
+        <script src="js/blockchain.js"></script>
     </body>
 </html>

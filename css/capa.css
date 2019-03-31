@@ -12,3 +12,11 @@ h1, h4, h2, th {
 .jumbotron {
     padding-top: 8px;
 }
+
+td {
+    text-align: center;
+}
+
+thead {
+    background-color: lightgray
+}
