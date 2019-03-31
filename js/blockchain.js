@@ -40,7 +40,7 @@ window.addEventListener('load', function() {
                                                 doencaAlvo.innerHTML = record[6];
                                                 
                                                 let vacinaNome = row.insertCell(1);
-                                                vacinaNome.innerHTML = record[0                                                 
+                                                vacinaNome.innerHTML = record[0];                                                 
                                                 
                                                 let quando = row.insertCell(2);
                                                 quando.innerHTML = record[4];
