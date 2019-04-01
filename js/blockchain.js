@@ -31,7 +31,7 @@ window.addEventListener('load', function() {
                                     if (totalRec < 2) {
                                         alert("Você precisa haver registrado a vacinação primeiro antes de acessar essa página.\nVocê será redirecionado a página para inclusão da sua vacinação.");
                                         window.location.href = "https://abezerrademenezescavalcanti.github.io/saudechain/index.html";
-                                        return
+                                        return;
                                     }   
                                     for (i=2; i<=totalRec; i++) {
                                         console.log("chamando getPatientRecordDetails - ", addr, i, i-2);
@@ -66,10 +66,15 @@ window.addEventListener('load', function() {
                                                 alert("Para gerar sua carteira de vacinação, preencha os campos pressionando Enter ao terminar de completar cada campo");
                                                 $("#patientinput").focus();
                                             })
-                                            .catch(err => console.error("deu ruim...", err));
+                                            .catch(err => console.error("Erro ao obter o detalhe do registro...", err));
                                     }                                    
                                 })
-                                .catch(err => console.error("deu ruim...", err));
+                                .catch( (err) => {
+                                    console.error("Erro ao obter o total de registros ", err);
+                                    alert("Essa conta Ethereum já tem registros no MyHealthData?\nRegistre os dados para esta conta na página que você será redirecionado\ne depois volte aqui para gerar a carteira de vacinação.");
+                                    window.location.href = "https://abezerrademenezescavalcanti.github.io/saudechain/index.html";
+                                    return;
+                                });
                         })
                 })
                 .catch((err) => {
