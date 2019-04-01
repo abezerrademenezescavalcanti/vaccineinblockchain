@@ -6,7 +6,6 @@ $("#dateofbirthlabel").hide();
 $("#genderlabel").hide();
 $("#naclabel").hide();
 $("#documentlabel").hide();
-$("#patientinput").focus();
 
 function mudaCampo(event) {
     const source = event.target || event.srcElement;
@@ -57,6 +56,10 @@ function mudaCampo(event) {
             $("#documentlabel_fr").html(generateHtmlContent(documentNumber));
             $("#documentinput").hide();
             $("#documentlabel").show();
+            $("#tabVaccines")[0].scrollIntoView({
+                behavior: "smooth", 
+                block: "end"
+            });
         }
     }
 }

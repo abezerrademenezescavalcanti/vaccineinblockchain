@@ -17,8 +17,8 @@ window.addEventListener('load', function() {
                     console.log("addr ", addr);
                     provider.getNetwork()
                         .then((network) => {
+                            console.log("network...", network);
                             if (network.chainId === 4) {
-                                console.log("network...", network.chainId);
                                 //contract = web3.eth.contract(RegMedABI).at("0x58e43fdcfcdbadb71533b678648f4913171e1425"); 
                                 contract = new ethers.Contract("0x58e43fdcfcdbadb71533b678648f4913171e1425", RegMedABI, signer);
                             } else {
@@ -26,7 +26,12 @@ window.addEventListener('load', function() {
                             }
                             contract.getTotalPatientRecords(addr)
                                 .then((totalRec) => {
-                                    console.log("getTotalPatientRecords ", totalRec);     
+                                    console.log("getTotalPatientRecords ", totalRec);  
+                                    if (totalRec < 2) {
+                                        alert("Você precisa haver registrado a vacinação primeiro antes de acessar essa página.\nVocê será redirecionado a página para inclusão da sua vacinação.");
+                                        window.location.href = "https://abezerrademenezescavalcanti.github.io/saudechain/index.html";
+                                        return
+                                    }   
                                     for (i=2; i<=totalRec; i++) {
                                         console.log("chamando getPatientRecordDetails - ", addr, i, i-2);
                                         contract.getPatientRecordDetails(addr, i)
@@ -57,6 +62,8 @@ window.addEventListener('load', function() {
                                                 let validade = row.insertCell(6);
                                                 validade.innerHTML = record[5];
                                                 
+                                                alert("Para gerar sua carteira de vacinação, preencha os campos pressionando Enter ao terminar de completar cada campo");
+                                                $("#patientinput").focus();
                                             })
                                             .catch(err => console.error("deu ruim...", err));
                                     }                                    
@@ -64,15 +71,21 @@ window.addEventListener('load', function() {
                                 .catch(err => console.error("deu ruim...", err));
                         })
                 })
-                .catch(err => console.error(" deu ruim ", err));
+                .catch((err) => {
+                    console.error(" Não conseguiu pegar a conta do usuário ", err);
+                    alert("A página será recarregada para obter o endereço da sua conta Ethereum.\nCaso após a retentativa essa mensagem seja novamente exibida, feche essa janela e verifique seu Metamask.");
+                    window.location.reload();
+                });
           } else {
-            alert("Você precisa instalar e usar o Metamask");
+            alert("Você precisa ter uma carteira Ethereum associado a seu navegador. Que tal instalar o Metamask?");  
+            window.location.href = "https://metamask.io";
             // Allow read-only access to the blockchain if no Mist/Metamask/EthersWallet
-            provider = ethers.providers.getDefaultProvider();
+            //provider = ethers.providers.getDefaultProvider();
           }
     } catch (err) { // Usuário ainda não deu permissão para acessar a carteira Ethereum    
         console.log("erro"); 
         console.error(err);    
-        alert("Você precisa instalar e usar o Metamask");  
+        alert("Você precisa ter uma carteira Ethereum associado a seu navegador. Que tal instalar o Metamask?");  
+        window.location.href = "https://metamask.io";
     }
   });
