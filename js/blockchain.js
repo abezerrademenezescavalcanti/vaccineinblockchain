@@ -2,6 +2,7 @@ const RegMedABI = [{"constant":true,"inputs":[{"name":"_pacientAddress","type":"
 var contract;
 var network;
 var web3;
+var recRead = 0;
 
 window.addEventListener('load', function() {
     try {
@@ -33,6 +34,8 @@ window.addEventListener('load', function() {
                                         window.location.href = "https://abezerrademenezescavalcanti.github.io/saudechain/index.html";
                                         return;
                                     }   
+                                    //Records in MyHealthData starts with index 1
+                                    recRead = (totalRec-1);
                                     for (i=2; i<=totalRec; i++) {
                                         console.log("chamando getPatientRecordDetails - ", addr, i, i-2);
                                         contract.getPatientRecordDetails(addr, i)
@@ -64,14 +67,21 @@ window.addEventListener('load', function() {
                                                 validade.innerHTML = record[5];
                                                                                                
                                                 $("#patientinput").focus();
+                                                return 1;
+                                            })
+                                            .then((recAmount) => {
+                                                recRead = recRead - recAmount;
+                                                console.log(recAmount, totalRec, recRead);
+                                                if (recRead === 0) {
+                                                    table.deleteRow(1);
+                                                    alert("Para gerar sua carteira de vacinação, preencha os campos pressionando Enter ao terminar de completar cada campo"); 
+                                                }                                                  
                                             })
                                             .catch((err) => {
                                                 console.error("Erro ao obter o detalhe do registro...", err);
                                                 alert("Houve um erro ao carregar seus registros de vacinas do Blockchain. Veja os logs");
-                                                return
                                             });
                                     }
-                                    alert("Para gerar sua carteira de vacinação, preencha os campos pressionando Enter ao terminar de completar cada campo");                                    
                                 })
                                 .catch( (err) => {
                                     console.error("Erro ao obter o total de registros ", err);
