@@ -62,12 +62,16 @@ window.addEventListener('load', function() {
 
                                                 let validade = row.insertCell(6);
                                                 validade.innerHTML = record[5];
-                                                
-                                                alert("Para gerar sua carteira de vacinação, preencha os campos pressionando Enter ao terminar de completar cada campo");
+                                                                                               
                                                 $("#patientinput").focus();
                                             })
-                                            .catch(err => console.error("Erro ao obter o detalhe do registro...", err));
-                                    }                                    
+                                            .catch((err) => {
+                                                console.error("Erro ao obter o detalhe do registro...", err);
+                                                alert("Houve um erro ao carregar seus registros de vacinas do Blockchain. Veja os logs");
+                                                return
+                                            });
+                                    }
+                                    alert("Para gerar sua carteira de vacinação, preencha os campos pressionando Enter ao terminar de completar cada campo");                                    
                                 })
                                 .catch( (err) => {
                                     console.error("Erro ao obter o total de registros ", err);
