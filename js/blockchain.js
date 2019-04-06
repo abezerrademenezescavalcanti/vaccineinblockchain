@@ -58,7 +58,7 @@ window.addEventListener('load', function() {
                                                 prof.innerHTML = record[1];
                                                 
                                                 let fabricante = row.insertCell(5);
-                                                fabricante.innerHTML = record[2];
+                                                fabricante.innerHTML = record[2] + " : " + record[3];
 
                                                 let validade = row.insertCell(6);
                                                 validade.innerHTML = record[5];
