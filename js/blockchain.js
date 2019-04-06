@@ -79,7 +79,7 @@ window.addEventListener('load', function() {
                                             })
                                             .catch((err) => {
                                                 console.error("Erro ao obter o detalhe do registro...", err);
-                                                alert("Houve um erro ao carregar seus registros de vacinas do Blockchain. Veja os logs");
+                                                //alert("Houve um erro ao carregar seus registros de vacinas do Blockchain. Veja os logs");
                                             });
                                     }
                                 })
