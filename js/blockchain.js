@@ -36,14 +36,15 @@ window.addEventListener('load', function() {
                                     }   
                                     //Records in MyHealthData starts with index 1
                                     recRead = (totalRec-1);
+                                    console.log("RecRead inicial é ", recRead);
                                     for (i=2; i<=totalRec; i++) {
                                         console.log("chamando getPatientRecordDetails - ", addr, i, i-2);
                                         contract.getPatientRecordDetails(addr, i)
                                             .then((rec) => {
                                                 console.log("MyHealthData Rec: ", rec);
-                                                let record = rec[3].split(";");
                                                 
-                                                let row = table.insertRow(i-2);
+                                                let row = table.insertRow(2);
+                                                let record = rec[3].split(";");
 
                                                 let doencaAlvo = row.insertCell(0);
                                                 doencaAlvo.innerHTML = record[6];
@@ -65,16 +66,18 @@ window.addEventListener('load', function() {
 
                                                 let validade = row.insertCell(6);
                                                 validade.innerHTML = record[5];
-                                                                                               
-                                                $("#patientinput").focus();
+                                                                                                
                                                 return 1;
                                             })
-                                            .then((recAmount) => {
+                                            .then((recAmount) => {       
                                                 recRead = recRead - recAmount;
+                                                console.log("RecRead depois de incluido a linha é ", recRead);          
                                                 console.log(recAmount, totalRec, recRead);
                                                 if (recRead === 0) {
+                                                    console.log("Apagando linha a mais ", recRead);         
                                                     table.deleteRow(1);
                                                     alert("Para gerar sua carteira de vacinação, preencha os campos pressionando Enter ao terminar de completar cada campo"); 
+                                                    $("#patientinput").focus();
                                                 }                                                  
                                             })
                                             .catch((err) => {
