@@ -89,7 +89,7 @@ window.addEventListener('load', function() {
                                 .catch( (err) => {
                                     console.error("Erro ao obter o total de registros ", err);
                                     alert("Essa conta Ethereum já tem registros no MyHealthData?\nRegistre os dados para esta conta na página que você será redirecionado\ne depois volte aqui para gerar a carteira de vacinação.");
-                                    window.location.href = "https://abezerrademenezescavalcanti.github.io/saudechain/index.html";
+                                    //window.location.href = "https://abezerrademenezescavalcanti.github.io/saudechain/index.html";
                                     return;
                                 });
                         })
